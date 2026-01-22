@@ -1,0 +1,20 @@
+{
+  "name": "wow-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "node-cron": "^4.2.1",
+    "puppeteer-core": "^24.35.0",
+    "qs": "^6.14.1"
+  }
+}
