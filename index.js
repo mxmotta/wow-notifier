@@ -22,6 +22,9 @@ async function getAccessToken() {
       Authorization: `Basic ${auth}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
+  }).catch(err => {
+    console.error("Erro ao obter access token:", err.response?.data || err.message);
+    throw new Error("Failed to obtain access token");
   });
 
   return res.data.access_token;
@@ -35,6 +38,9 @@ async function getRealms(token) {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+  }).catch(err => {
+    console.error("Erro ao obter lista de realms:", err.response?.data || err.message);
+    return { data: { connected_realms: [] } };
   });
 
   return res.data;
@@ -48,6 +54,9 @@ async function getRealmsStatus(token, realmId) {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+  }).catch(err => {
+    console.error(`Erro ao obter status do realm ${realmId}:`, err.response?.data || err.message);
+    return { status: { name: { "en_US": "Unknown" } }, population: { name: { "en_US": "Unknown" } }, realms: [] };
   });
 
   return res.data;
