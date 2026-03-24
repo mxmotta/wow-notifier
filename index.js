@@ -89,7 +89,7 @@ async function run() {
       let id = element.href.split('/').pop().split('?')[0];
       if(id === "3209"){ // ID do servidor Azralon
         getRealmsStatus(token, id).then(statusData => {
-            if(currentStatus !== statusData.status.name["en_US"]){
+            if(currentStatus !== statusData?.status.name["en_US"]){
               sendToDiscord(`Status do servidor Azralon: ${statusData.status.name["en_US"]} - População: ${statusData.population.name["en_US"]}`);
               console.table(statusData.realms.map(r => ({
                   name: r.name["pt_BR"],
